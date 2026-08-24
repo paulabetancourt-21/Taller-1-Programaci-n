@@ -4,16 +4,33 @@ import java.awt.image.BufferedImage;
 
 import lombok.Getter;
 
+/**
+ * Representa una lista doblemente enlazada
+ * contiene una referencia al inicio del nodo y el final
+ *
+ * @author Paula Betancourt
+ * @author Claudia Garcia
+ * @version 0.01
+ */
 @Getter
 public class DoubleLinkedList {
     private Node head;
     private Node tail;
 
+    /**
+     * crea una lista doblemente enlazada vacia
+     *
+     */
     public DoubleLinkedList() {
         head = null;
         tail = null;
     }
 
+    /**
+     * añade una imagen al final de la lista
+     * @param image imagen que se va a almacenar en el nuevo nodo
+     *
+     */
     public void add(BufferedImage image) {
         Node newNode = new Node(image);
         if (head == null) {

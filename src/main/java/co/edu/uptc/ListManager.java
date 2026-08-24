@@ -9,6 +9,7 @@ public class ListManager {
     private DoubleLinkedList list;
     private int max;
     private int total;
+    // Las variables sirven ?
     private int used;
     private int free;
 
@@ -86,6 +87,7 @@ public class ListManager {
         }
     }
 
+    // El metodo sirve ?
     public void memInfo() {
         System.out.println("maxima total used free");
         System.out.println(max + " " + total + " " + used + " " + free);

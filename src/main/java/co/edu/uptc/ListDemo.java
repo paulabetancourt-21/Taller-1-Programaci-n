@@ -7,6 +7,14 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 
+/**
+ * Genera una lista doblemente enlazada con imagenes aleatorias y muestra
+ * un analisis de la memoria
+ * 
+ * @author Paula Betancour
+ * @author Claudia Garcia
+ * @version 0.01
+ */
 public class ListDemo {
     private long initialUsedBytes = 0;
     private long finalUsedBytes = 0;
@@ -14,6 +22,10 @@ public class ListDemo {
     private final int IMAGE_WIDTH = 100;
     private final int IMAGE_HEIGHT = 100;
 
+    /**
+     * Inicia el programa añadiendo la imagen para ir generando la lista
+     *
+     */
     public void run() {
         memInfo("Inicial");
         ListManager manager = new ListManager();
@@ -28,6 +40,14 @@ public class ListDemo {
         manager.showImagesPopup();
     }
 
+    /**
+     * Utiliza java 2d para crear la imagen que se añadira al nodo
+     * @param width ancho de la imagen
+     * @param height alto de la imagen 
+     * @param index numero para generar el color aleatorio
+     * @return imagen generada
+     *
+     */
     private BufferedImage createSampleImage(int width, int height, int index) {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
@@ -46,6 +66,11 @@ public class ListDemo {
         return img;
     }
 
+     /**
+     * Información respecto al uso de memoria en la ejecución del programa
+     * @param etapa informa si esta en el inicio de la ejecucion o en el final
+     *
+     */
     public void memInfo(String etapa) {
         MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
         MemoryUsage heapUsage = memoryBean.getHeapMemoryUsage();
@@ -69,7 +94,8 @@ public class ListDemo {
 
         String fmt = "%-10s %-20s %-20s %-20s %-20s %-35s%n";
         if (initialUsedBytes == finalUsedBytes) {
-            System.out.printf(fmt, "Etapa", "Máxima (Max)", "Total (Total)", "Usada (Used)", "Libre (Free)", "Delta vs Inicial");
+            System.out.printf(fmt, "Etapa", "Máxima (Max)", "Total (Total)", "Usada (Used)", "Libre (Free)",
+                    "Delta vs Inicial");
             System.out.println("-".repeat(125));
         }
 
@@ -82,6 +108,11 @@ public class ListDemo {
                 deltaStr);
     }
 
+     /**
+     * Muestra en consola el analisis de la memoria despues de generar
+     * la lista con las imagenes
+     *
+     */
     public void printAnalysis() {
         long deltaBytes = finalUsedBytes - initialUsedBytes;
         double bytesPerElement = (double) deltaBytes / TOTAL_ELEMENTS;
@@ -94,8 +125,10 @@ public class ListDemo {
 
         System.out.println("\n--- ANÁLISIS DE MEMORIA ---");
         System.out.printf("Elementos insertados             : %,d%n", TOTAL_ELEMENTS);
-        System.out.printf("Delta real (JVM)                 : %,d bytes (%.2f MB)%n", deltaBytes, (double) deltaBytes / (1024 * 1024));
-        System.out.printf("Tamaño teórico total (solo pixeles): %,d bytes (%.2f MB)%n", theoreticalTotal, (double) theoreticalTotal / (1024 * 1024));
+        System.out.printf("Delta real (JVM)                 : %,d bytes (%.2f MB)%n", deltaBytes,
+                (double) deltaBytes / (1024 * 1024));
+        System.out.printf("Tamaño teórico total (solo pixeles): %,d bytes (%.2f MB)%n", theoreticalTotal,
+                (double) theoreticalTotal / (1024 * 1024));
         System.out.printf("Overhead JVM estimado            : %.1f%%%n", overhead);
         System.out.printf("Promedio real por elemento       : %.2f bytes/elemento%n", bytesPerElement);
         System.out.printf("Tamaño teórico por imagen        : %,d bytes/elemento (%dx%d px ARGB)%n",
