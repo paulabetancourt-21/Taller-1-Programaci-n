@@ -13,6 +13,7 @@ public class ListManager {
     private int used;
     private int free;
 
+    // NOTE: No tiene sentido el max, used, y free, free siempre sera cero. Used siempre sera igual que total, no tiene sentido
     public ListManager() {
         list = new DoubleLinkedList();
         max = 0;
@@ -87,7 +88,7 @@ public class ListManager {
         }
     }
 
-    // El metodo sirve ?
+    // NOTE: Es codigo basura, no esta haciendo nada en el codigo
     public void memInfo() {
         System.out.println("maxima total used free");
         System.out.println(max + " " + total + " " + used + " " + free);

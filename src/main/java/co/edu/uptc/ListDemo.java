@@ -11,7 +11,7 @@ import java.lang.management.MemoryUsage;
  * Genera una lista doblemente enlazada con imagenes aleatorias y muestra
  * un analisis de la memoria
  * 
- * @author Paula Betancour
+ * @author Paula Betancourt
  * @author Claudia Garcia
  * @version 0.01
  */
@@ -66,7 +66,7 @@ public class ListDemo {
         return img;
     }
 
-     /**
+    /**
      * Información respecto al uso de memoria en la ejecución del programa
      * @param etapa informa si esta en el inicio de la ejecucion o en el final
      *
@@ -108,7 +108,7 @@ public class ListDemo {
                 deltaStr);
     }
 
-     /**
+    /**
      * Muestra en consola el analisis de la memoria despues de generar
      * la lista con las imagenes
      *
