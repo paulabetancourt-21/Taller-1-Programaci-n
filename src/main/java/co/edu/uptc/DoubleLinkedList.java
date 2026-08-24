@@ -2,6 +2,9 @@ package co.edu.uptc;
 
 import java.awt.image.BufferedImage;
 
+import lombok.Getter;
+
+@Getter
 public class DoubleLinkedList {
     private Node head;
     private Node tail;
@@ -21,13 +24,5 @@ public class DoubleLinkedList {
             newNode.setPrev(tail);
             tail = newNode;
         }
-    }
-
-    public Node getHead() {
-        return head;
-    }
-
-    public Node getTail() {
-        return tail;
     }
 }
