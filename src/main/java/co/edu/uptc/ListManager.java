@@ -5,6 +5,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+
+/**
+ * Asistente que adminiostra una lista doblemente enlazada de imagenes y muestra
+ * la interfaz grafica para manejar cada una de ellas
+ * 
+ * @author Paula Betancourt
+ * @author Claudia Garcia
+ * @version 0.01
+ */
+
 public class ListManager {
     private DoubleLinkedList list;
     private int max;
@@ -14,6 +24,11 @@ public class ListManager {
     private int free;
 
     // NOTE: No tiene sentido el max, used, y free, free siempre sera cero. Used siempre sera igual que total, no tiene sentido
+
+      /**
+     * inicializa la lista doblemente enlazada 
+     *
+     */
     public ListManager() {
         list = new DoubleLinkedList();
         max = 0;
@@ -22,6 +37,11 @@ public class ListManager {
         free = 0;
     }
 
+      /**
+     * Añade la imagen al final de la lista
+     * @param image imagen que se añade a la lista 
+     *
+     */
     public void add(BufferedImage image) {
         list.add(image);
         total++;
@@ -34,6 +54,10 @@ public class ListManager {
         free = max - used;
     }
 
+      /**
+     * recorre la lista de imagenes para mostrar la informacion de dimensiones de cada una
+     *
+     */
     public void writeContent() {
         Node current = list.getHead();
         while (current != null) {
@@ -44,6 +68,11 @@ public class ListManager {
         }
     }
 
+  /**
+     * Manejo de la interfaz grafica para mostrar las imagenes mediante ventanas emergentes 
+     * permitiendo navegar entre los nodos
+     *
+     */
     public void showImagesPopup() {
         Node current = list.getHead();
         if (current == null) {
