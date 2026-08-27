@@ -4,7 +4,21 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import co.edu.uptc.exceptions.EmptyListException;
 
+<<<<<<< Updated upstream
+=======
+
+/**
+ * Asistente que administra una lista doblemente enlazada de imagenes y muestra
+ * la interfaz grafica para manejar cada una de ellas
+ * 
+ * @author Paula Betancourt
+ * @author Claudia Garcia
+ * @version 0.01
+ */
+
+>>>>>>> Stashed changes
 public class ListManager {
     private DoubleLinkedList list;
     private int max;
@@ -14,6 +28,14 @@ public class ListManager {
     private int free;
 
     // NOTE: No tiene sentido el max, used, y free, free siempre sera cero. Used siempre sera igual que total, no tiene sentido
+<<<<<<< Updated upstream
+=======
+
+    /**
+     * inicializa la lista doblemente enlazada 
+     *
+     */
+>>>>>>> Stashed changes
     public ListManager() {
         list = new DoubleLinkedList();
         max = 0;
@@ -22,8 +44,16 @@ public class ListManager {
         free = 0;
     }
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * Añade la imagen al final de la lista
+     * @param image imagen que se añade a la lista 
+     *
+     */
+>>>>>>> Stashed changes
     public void add(BufferedImage image) {
-        list.add(image);
+        list.add(image); //TODO: SE CAPTURA LA EXCEPCION PARA MOSTRAR UN MENSAJE EN INTERFAZ? O SE PUEDE DEJAR PASAR? 
         total++;
         if (list.getHead() != null) {
             used++;
@@ -34,6 +64,13 @@ public class ListManager {
         free = max - used;
     }
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * recorre la lista de imagenes para mostrar la informacion de dimensiones de cada una
+     *
+     */
+>>>>>>> Stashed changes
     public void writeContent() {
         Node current = list.getHead();
         while (current != null) {
@@ -44,18 +81,23 @@ public class ListManager {
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * Manejo de la interfaz grafica para mostrar las imagenes mediante ventanas emergentes 
+     * permitiendo navegar entre los nodos
+     *
+     */
+>>>>>>> Stashed changes
     public void showImagesPopup() {
         Node current = list.getHead();
         if (current == null) {
-            JOptionPane.showMessageDialog(null, "La lista está vacía", "Visualizador de Imágenes", JOptionPane.INFORMATION_MESSAGE);
-            return;
+            throw new EmptyListException("La lista esta vacia"); 
         }
-
         int index = 1;
         while (current != null) {
             BufferedImage img = current.getImage();
             JLabel label = new JLabel(new ImageIcon(img));
-
             Object[] options = {"Anterior", "Siguiente", "Cerrar"};
             int choice = JOptionPane.showOptionDialog(
                     null,
