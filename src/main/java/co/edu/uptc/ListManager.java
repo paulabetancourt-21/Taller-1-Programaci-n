@@ -15,9 +15,12 @@ import co.edu.uptc.exceptions.EmptyListException;
  * @version 0.01
  */
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 
 /**
- * Asistente que adminiostra una lista doblemente enlazada de imagenes y muestra
+ * Asistente que administra una lista doblemente enlazada de imagenes y muestra
  * la interfaz grafica para manejar cada una de ellas
  * 
  * @author Paula Betancourt
@@ -27,9 +30,9 @@ import co.edu.uptc.exceptions.EmptyListException;
 
 public class ListManager {
     private DoubleLinkedList list;
+    private static final Logger logger = LoggerFactory.getLogger(ListManager.class);
     private int max;
     private int total;
-    // Las variables sirven ?
     private int used;
     private int free;
 
@@ -45,6 +48,7 @@ public class ListManager {
         total = 0;
         used = 0;
         free = 0;
+        logger.info("ListManager inicializado correctamente.");
     }
 
       /**
@@ -53,7 +57,8 @@ public class ListManager {
      *
      */
     public void add(BufferedImage image) {
-        list.add(image); //TODO: SE CAPTURA LA EXCEPCION PARA MOSTRAR UN MENSAJE EN INTERFAZ? O SE PUEDE DEJAR PASAR? 
+        logger.debug("Ejecutando método add en ListManager con la imagen");
+        list.add(image);
         total++;
         if (list.getHead() != null) {
             used++;
@@ -86,8 +91,11 @@ public class ListManager {
     public void showImagesPopup() {
         Node current = list.getHead();
         if (current == null) {
-            throw new EmptyListException("La lista esta vacia"); 
+            logger.warn("Se intentó abrir el visor gráfico, pero la lista se encuentra vacía");
+            throw new EmptyListException("La lista esta vacia");
         }
+        logger.info("Abriendo interfaz gráfica emergente para la visualización de nodos");
+
         int index = 1;
         while (current != null) {
             BufferedImage img = current.getImage();
