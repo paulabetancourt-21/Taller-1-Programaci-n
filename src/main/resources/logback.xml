@@ -1,25 +1,37 @@
 <configuration>
 
-    <!-- Destino en consola -->
+    <!-- 1. Destino en la Consola -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Destino en archivo de texto -->
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <!-- 2. Solución Definitiva: Archivo con control de tamaño e índices numéricos -->
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/app.log</file>
-        <append>true</append>
+
+        <!-- Política cuando se alcanza el tamaño límite (Ej: 5 Megabytes) -->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+
+        <!-- Política de ventana fija: mantiene un historial de hasta 3 archivos respaldados con índices (.1, .2, .3) -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>logs/app.log.%i</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Nivel general y habilitación de appenders -->
+    <!-- 3. Nivel general de la aplicación -->
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="FILE" />
+        <appender-ref ref="ROLLING_FILE" />
     </root>
 
 </configuration>
