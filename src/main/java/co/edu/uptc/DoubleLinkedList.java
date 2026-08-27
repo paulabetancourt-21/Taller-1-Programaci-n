@@ -2,7 +2,7 @@ package co.edu.uptc;
 
 import java.awt.image.BufferedImage;
 
-import co.edu.uptc.Exceptions.InvalidImageException;
+import co.edu.uptc.exceptions.InvalidImageException;
 import lombok.Getter;
 
 /**
@@ -32,8 +32,6 @@ public class DoubleLinkedList {
      * @param image imagen que se va a almacenar en el nuevo nodo
      *
      */
-
-    
     public void add(BufferedImage image) {
         if (image == null) {
             throw new InvalidImageException("La imagen no puede ser null");

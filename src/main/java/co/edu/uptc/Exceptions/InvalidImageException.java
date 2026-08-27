@@ -1,4 +1,4 @@
-package co.edu.uptc.Exceptions;
+package co.edu.uptc.exceptions;
 
 public class InvalidImageException extends RuntimeException{
     

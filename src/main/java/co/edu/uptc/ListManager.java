@@ -4,6 +4,16 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import co.edu.uptc.exceptions.EmptyListException;
+
+/**
+ * Asistente que administra una lista doblemente enlazada de imagenes y muestra
+ * la interfaz grafica para manejar cada una de ellas
+ * 
+ * @author Paula Betancourt
+ * @author Claudia Garcia
+ * @version 0.01
+ */
 
 
 /**
@@ -43,7 +53,7 @@ public class ListManager {
      *
      */
     public void add(BufferedImage image) {
-        list.add(image);
+        list.add(image); //TODO: SE CAPTURA LA EXCEPCION PARA MOSTRAR UN MENSAJE EN INTERFAZ? O SE PUEDE DEJAR PASAR? 
         total++;
         if (list.getHead() != null) {
             used++;
@@ -76,15 +86,12 @@ public class ListManager {
     public void showImagesPopup() {
         Node current = list.getHead();
         if (current == null) {
-            JOptionPane.showMessageDialog(null, "La lista está vacía", "Visualizador de Imágenes", JOptionPane.INFORMATION_MESSAGE);
-            return;
+            throw new EmptyListException("La lista esta vacia"); 
         }
-
         int index = 1;
         while (current != null) {
             BufferedImage img = current.getImage();
             JLabel label = new JLabel(new ImageIcon(img));
-
             Object[] options = {"Anterior", "Siguiente", "Cerrar"};
             int choice = JOptionPane.showOptionDialog(
                     null,
