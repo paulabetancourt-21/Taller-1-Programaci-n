@@ -1,0 +1,18 @@
+2026-08-27 11:26:46.099 [main] DEBUG co.edu.uptc.DoubleLinkedList - Se ha inicializado una lista doblemente enlazada vacía
+2026-08-27 11:26:46.100 [main] INFO  co.edu.uptc.ListManager - ListManager inicializado correctamente.
+2026-08-27 11:26:46.172 [main] DEBUG co.edu.uptc.ListManager - Ejecutando método add en ListManager con la imagen
+2026-08-27 11:26:46.173 [main] DEBUG co.edu.uptc.DoubleLinkedList - Primer nodo (head y tail) añadido en la lista.
+2026-08-27 11:26:46.173 [main] INFO  co.edu.uptc.DoubleLinkedList - Imagen agregada exitosamente
+2026-08-27 11:26:46.173 [main] DEBUG co.edu.uptc.ListManager - Ejecutando método add en ListManager con la imagen
+2026-08-27 11:26:46.173 [main] DEBUG co.edu.uptc.DoubleLinkedList - Nuevo nodo añadido al final de la lista (Nodo tail actualizado)
+2026-08-27 11:26:46.174 [main] INFO  co.edu.uptc.DoubleLinkedList - Imagen agregada exitosamente
+2026-08-27 11:26:46.174 [main] DEBUG co.edu.uptc.ListManager - Ejecutando método add en ListManager con la imagen
+2026-08-27 11:26:46.174 [main] DEBUG co.edu.uptc.DoubleLinkedList - Nuevo nodo añadido al final de la lista (Nodo tail actualizado)
+2026-08-27 11:26:46.174 [main] INFO  co.edu.uptc.DoubleLinkedList - Imagen agregada exitosamente
+2026-08-27 11:26:46.174 [main] DEBUG co.edu.uptc.ListManager - Ejecutando método add en ListManager con la imagen
+2026-08-27 11:26:46.174 [main] DEBUG co.edu.uptc.DoubleLinkedList - Nuevo nodo añadido al final de la lista (Nodo tail actualizado)
+2026-08-27 11:26:46.175 [main] INFO  co.edu.uptc.DoubleLinkedList - Imagen agregada exitosamente
+2026-08-27 11:26:46.175 [main] DEBUG co.edu.uptc.ListManager - Ejecutando método add en ListManager con la imagen
+2026-08-27 11:26:46.175 [main] DEBUG co.edu.uptc.DoubleLinkedList - Nuevo nodo añadido al final de la lista (Nodo tail actualizado)
+2026-08-27 11:26:46.175 [main] INFO  co.edu.uptc.DoubleLinkedList - Imagen agregada exitosamente
+2026-08-27 11:26:46.180 [main] INFO  co.edu.uptc.ListManager - Abriendo interfaz gráfica emergente para la visualización de nodos
