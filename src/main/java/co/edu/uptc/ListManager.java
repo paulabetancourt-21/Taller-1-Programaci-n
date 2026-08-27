@@ -15,6 +15,16 @@ import co.edu.uptc.exceptions.EmptyListException;
  * @version 0.01
  */
 
+
+/**
+ * Asistente que adminiostra una lista doblemente enlazada de imagenes y muestra
+ * la interfaz grafica para manejar cada una de ellas
+ * 
+ * @author Paula Betancourt
+ * @author Claudia Garcia
+ * @version 0.01
+ */
+
 public class ListManager {
     private DoubleLinkedList list;
     private int max;
@@ -25,7 +35,7 @@ public class ListManager {
 
     // NOTE: No tiene sentido el max, used, y free, free siempre sera cero. Used siempre sera igual que total, no tiene sentido
 
-    /**
+      /**
      * inicializa la lista doblemente enlazada 
      *
      */
@@ -37,7 +47,7 @@ public class ListManager {
         free = 0;
     }
 
-    /**
+      /**
      * Añade la imagen al final de la lista
      * @param image imagen que se añade a la lista 
      *
@@ -54,7 +64,7 @@ public class ListManager {
         free = max - used;
     }
 
-    /**
+      /**
      * recorre la lista de imagenes para mostrar la informacion de dimensiones de cada una
      *
      */
@@ -68,7 +78,7 @@ public class ListManager {
         }
     }
 
-    /**
+  /**
      * Manejo de la interfaz grafica para mostrar las imagenes mediante ventanas emergentes 
      * permitiendo navegar entre los nodos
      *
