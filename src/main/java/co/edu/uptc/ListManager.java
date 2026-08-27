@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import co.edu.uptc.exceptions.EmptyListException;
 
-
 /**
  * Asistente que administra una lista doblemente enlazada de imagenes y muestra
  * la interfaz grafica para manejar cada una de ellas
